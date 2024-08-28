@@ -53,11 +53,11 @@ export default class Notion {
         return response.results;
     }
 
-    async insertItem(databaseName, properties) {
+    async insertItem(databaseName, pageProperties) {
         const databaseId = await this.getDatabaseId(databaseName);
-        const response = await this.notion.pages.create({
+        const response = await this.client.pages.create({
             parent: { database_id: databaseId },
-            properties,
+            properties: pageProperties
         });
 
         return response;

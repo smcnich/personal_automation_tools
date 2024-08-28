@@ -14,8 +14,6 @@ dotenv.config();
 const TOKEN_PATH = process.env.GOOGLE_TOKEN;
 const CREDENTIALS_PATH = process.env.GOOGLE_CRED;
 
-console.log(TOKEN_PATH)
-
 export default class Tasks {
 
     /**
@@ -98,7 +96,7 @@ export default class Tasks {
         })
     }
 
-    async getTasks(taskList) {
+    async getTasks(taskList, showCompleted = true) {
         /*
         method: Tasks::getTasks
 
@@ -135,7 +133,8 @@ export default class Tasks {
             // Intialize the service and hit the API
             const service = google.tasks({version: 'v1', auth});
             const res = await service.tasks.list({
-                tasklist: listID
+                tasklist: listID,
+                showHidden: showCompleted
             });
 
             // return the response data from the async function
