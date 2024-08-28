@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "@notionhq/client": "^2.2.15",
+    "dotenv": "^16.4.5",
+    "google-auth-library": "^9.14.0",
+    "googleapis": "^105.0.0"
+  }
+}
